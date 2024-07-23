@@ -178,7 +178,6 @@ function Home({ title }) {
   const getTotalForm = async () => await contract.methods._formCounter().call()
   const getTotalRespond = async () => await contract.methods._respondCounter().call()
   const getFee = async () => await contract.methods.fee().call()
-  const getResolveList = async (wallet) => await contract.methods.getDomainList(wallet).call()
   const getTotalSupply = async () => await contract.methods.totalSupply().call()
   const getCouncilMintExpiration = async () => await contract.methods.councilMintExpiration().call()
   const getMaxSupply = async () => await contract.methods.MAX_SUPPLY().call()

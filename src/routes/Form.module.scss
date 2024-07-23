@@ -2,63 +2,128 @@
 
 .section {
   height: inherit;
+
+  font-size: calc( 16px + 0.15vw);
+
+  > div {
+    row-gap: 1rem;
+  }
+
+  button {
+    &[disabled] {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  small {
+    color: rgba(77, 77, 77, 0.6);
+  }
 }
 
-.hero {
-  position: relative;
-  padding: 4rem 0;
+.form-wrapper {
+  row-gap: 1rem;
+
+  input {
+    padding: 1rem 0;
+    line-height: 0;
+    height: 37px;
+    border: none;
+    border-bottom: 2px solid #4d4d4d;
+  }
+
+  button {
+    margin-top: 1rem;
+    background-color: var(--color-black);
+    color: var(--white);
+    max-width: fit-content;
+    text-transform: uppercase;
+  }
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+
+  button {
+    all: unset;
+    cursor: pointer;
+  }
+
+  span {
+    font-size: 13px;
+  }
+}
+
+.progress {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  background: #fafafa;
+  height: 0.45rem;
   isolation: isolate;
+  z-index: 999;
+
+  &:hover {
+    &:after {
+      opacity: 1;
+    }
+  }
 
   &:before {
     content: '';
     position: absolute;
-    inset: 0;
-    background: linear-gradient(225.71deg, #f0f3fa 0%, rgba(255, 255, 255, 0) 37.9%, rgba(255, 255, 255, 0) 62.65%, #f0f3fa 100%);
-    border-radius: var(--global-border-radius);
-    z-index: -1;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: var(--w);
+    background-color: var(--color-primary);
   }
 
-  h1 {
-    font-size: 2rem;
-    text-wrap: balance;
-    font-family: 'Libre Franklin';
-    @include small-down() {
-      font-size: 7vw;
-    }
-  }
-
-  p {
-    max-width: 400px;
-    text-wrap: balance;
-    line-height: 1.8rem;
-    text-align: center;
-    font-weight: 300;
-    @include small-down() {
-      font-size: 2.5vw;
-    }
-  }
-
-  button {
-    --tile-shadow: 0 0 2px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.14), inset 0 0 0px 2px transparent;
-    --tile-shadow-hover: 0 0 2px rgba(0, 0, 0, 0.12), 0 8px 16px rgba(0, 0, 0, 0.14);
-    color: var(--white);
-    height: 37px;
-    background: var(--black);
-
-background: linear-gradient(73.41deg, #4285F4 10.84%, #9B72CB 53.34%, #D96570 89.3%);
-
+  &:after {
+    content: '' attr(count) '';
+    position: absolute;
+    left: 50%;
+    top: 1rem;
+    padding: 0.1rem 0.8rem;
     border-radius: 999px;
-    margin: auto 0;
+    text-align: center;
+    font-size: 9px;
+    transform: translateX(-50%);
+    background-color: var(--black-025);
+    opacity: 0.5;
+    cursor: help;
+    transition-property: opacity;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+  }
+}
 
-    @include small-down() {
-    }
+.copyright {
+  // Position
+  position: fixed;
+  right: 0;
+  bottom: 0;
 
-    &:hover {
-      box-shadow: var(--tile-shadow-hover);
-    }
+  // Display
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
 
-    &:active {
-      transform: scale(0.94);
-    }
+  // Space
+  padding: 1rem;
+
+  // Background
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #fafafa 100%);
+
+  // Font
+  font-family: 400 12px 'Libre Franklin';
+
+  img {
+    width: 45px;
   }
 }

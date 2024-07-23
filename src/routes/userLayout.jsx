@@ -27,10 +27,10 @@ const links = [
     path: `dashboard`,
   },
   {
-    name: `Generate`,
-    icon: <Icon name={`storefront`} />,
+    name: `Form`,
+    icon: <Icon name={`dashboard`} />,
     target: '',
-    path: `brand`,
+    path: `forms`,
   },
   {
     name: `Validate`,

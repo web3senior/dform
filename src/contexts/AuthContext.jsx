@@ -123,6 +123,7 @@ export function AuthProvider({ children }) {
   }
 
   useEffect(() => {
+    console.log(`Contract`,import.meta.env.VITE_DFORM_CONTRACT_TESTNET)
     setLoading(true)
     isWalletConnected().then((addr) => {
       if (addr !== undefined) {

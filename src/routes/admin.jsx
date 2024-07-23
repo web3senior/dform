@@ -309,11 +309,11 @@ function Admin({ title }) {
       <section className={`${styles.section} ms-motion-slideDownIn`}>
         <div className={`${styles['__container']} __container`} data-width={`medium`}>
           <div className={`card`}>
-            <div className={`card__header`}>Team Mint</div>
+            <div className={`card__header`}>Update form</div>
             <div className={`card__body form`}>
               <label htmlFor="team">{teamMintCounter}/222</label>
               <textarea name="" id="team" placeholder="0x0, 0x1, 0x2"></textarea>
-              <button className="btn mt-10" onClick={(e) => handleTeamMint(e)}>
+              <button className="btn mt-10" onClick={(e) => handleUpdateForm(e)}>
                 Team Mint
               </button>
             </div>

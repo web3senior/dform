@@ -14,6 +14,7 @@ import Home, { loader as homeLoader } from './routes/home.jsx'
 import About from './routes/about.jsx'
 import Form from './routes/form.jsx'
 import Fee from './routes/fee.jsx'
+import Forms from './routes/forms.jsx'
 import TermsOfService from './routes/terms-of-service.jsx'
 import PrivacyPolicy from './routes/privacy-policy.jsx'
 import Ecosystem from './routes/ecosystem.jsx'
@@ -66,7 +67,8 @@ const router = createBrowserRouter([
   },
   {
     path: `:network/:formId`,
-    element: <Form/>,
+    element: <AuthProvider><Form/></AuthProvider>,
+        errorElement: <ErrorPage />,
   },
   {
     path: 'user',
@@ -88,8 +90,8 @@ const router = createBrowserRouter([
         element: <Dashboard title={`Dashboard`} />,
       },
       {
-        path: `brand`,
-        element: <Dashboard title={`Brand`} />,
+        path: `forms`,
+        element: <Forms title={`Forms`} />,
       },
       {
         path: `point`,

@@ -1,0 +1,12 @@
+[
+  {
+    "type": "question",
+    "q": "What’s your name*",
+    "hint": "Please enter your full name"
+  },
+  {
+    "type": "question",
+    "q": "What questions do you have from the core team?",
+    "hint": "Please enter your full name"
+  }
+]
