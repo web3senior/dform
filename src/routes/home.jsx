@@ -30,8 +30,7 @@ function Home({ title }) {
   const [loaderData, setLoaderData] = useState(useLoaderData())
   const [isLoading, setIsLoading] = useState(true)
   const [recordType, setRecordType] = useState([])
-  const [totalForm, setTotalForm] = useState(0)
-  const [totalRespond, setTotalRespond] = useState(0)
+
   const [faq, setFaq] = useState([
     {
       q: `What is a decentralized form?`,
@@ -73,7 +72,6 @@ function Home({ title }) {
       description: `Easy to use for everyone.`,
     },
   ])
-  const [fee, setFee] = useState(0)
   const [ecosystem, setEcosystem] = useState([
     {
       name: `Ethereum`,
@@ -85,8 +83,8 @@ function Home({ title }) {
       name: `LUKSO`,
     },
     {
-      name: `Morph`
-    }
+      name: `Morph`,
+    },
   ])
   const [totalSupply, setTotalSupply] = useState(0)
   const [distance, setDistance] = useState(0)
@@ -203,9 +201,6 @@ function Home({ title }) {
     return false
   }
 
-  const getTotalForm = async () => await contract.methods._formCounter().call()
-  const getTotalRespond = async () => await contract.methods._respondCounter().call()
-  const getFee = async () => await contract.methods.fee().call()
   const getTotalSupply = async () => await contract.methods.totalSupply().call()
   const getCouncilMintExpiration = async () => await contract.methods.councilMintExpiration().call()
   const getMaxSupply = async () => await contract.methods.MAX_SUPPLY().call()
@@ -242,71 +237,32 @@ function Home({ title }) {
     }
   }
 
-  useEffect(() => {
-    getTotalForm().then((res) => {
-      setTotalForm(_.toNumber(res))
-      setIsLoading(false)
-    })
-
-    getTotalRespond().then((res) => {
-      setTotalRespond(_.toNumber(res))
-      setIsLoading(false)
-    })
-
-    getFee().then((res) => {
-      setFee(_.fromWei(res, `ether`))
-      setIsLoading(false)
-    })
-  }, [])
+  useEffect(() => {}, [])
 
   return (
     <>
       <section className={`${styles.section} ms-motion-slideDownIn`}>
         <div className={`${styles['__container']} __container`} data-width={`large`}>
-          <div className={`${styles['hero']} d-f-c flex-column mt-40`}>
-            <div className={`mb-40`}>
-              <figure>
-                <img alt={`Hero`} src={Hero} />
-              </figure>
-            </div>
+  
+          <div className={`${styles['hero']} grid grid--fit mt-50`} style={{ '--data-width': '200px', gap: '1rem' }}>
+            <div className={`d-flex flex-column align-items-start`}>
+              <h1 className={`text-uppercase mb-10`}>
+                Data forms you can <b className={`color-primary`}>trust</b>
+              </h1>
 
-            <h1 className={`text-uppercase mb-10`}>
-              Data forms you can <b className={`color-primary`}>trust</b>
-            </h1>
+              <p className={``}>
+              Trustworthy forms, secure, transparent data management— <b>All on blockchain</b>
+              </p>
 
-            <p className={``}>
-              Easy form creation, engaging user experience, data collection capabilities— <b>All on blockchain</b>
-            </p>
-
-            <div className={`mt-20`}>
-              <button onClick={() => auth.connectWallet()}>Get started—it's free</button>
-            </div>
-          </div>
-
-          <div className={`grid grid--fit mt-50`} style={{ '--data-width': '200px', gap: '1rem' }}>
-            <div className={`card`}>
-              <div className={`card__body`}>
-                <p>Total Forms</p>
-                <h2>{totalForm}</h2>
+              <div className={`mt-20`}>
+                <button onClick={() => auth.connectWallet()}>Get started—it's free</button>
               </div>
             </div>
-            <div className={`card`}>
-              <div className={`card__body`}>
-                <p>Total Responds</p>
-                <h2>{totalRespond}</h2>
-              </div>
-            </div>
-            <div className={`card`}>
-              <div className={`card__body`}>
-                <p>Total ecosystems</p>
-                <h2>{`4`}</h2>
-              </div>
-            </div>
-            <div className={`card`}>
-              <div className={`card__body`}>
-                <p>Fee</p>
-                <h2>0</h2>
-              </div>
+
+            <div className={`d-flex flex-column align-items-end justify-content-center`}>
+            <figure>
+              <img alt={`Form`} src={Hero} />
+            </figure>
             </div>
           </div>
         </div>

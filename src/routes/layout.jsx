@@ -96,7 +96,6 @@ export default function Root() {
               <Link to={`/`}>
                   <figure className={`${styles['logo']}`}>
                     <img alt={import.meta.env.VITE_TITLE} src={Logo} />
-                    <figcaption>By {import.meta.env.VITE_AUTHOR}</figcaption>
                   </figure>
               </Link>
       

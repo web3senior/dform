@@ -7,7 +7,7 @@ const styleTitle = {
 }
 
 const styleSubtitle = {
-  fontSize: 'calc(.8rem + .4vw)',
+  fontSize: 'calc(.8rem + .2vw)',
   fontWeight: '400',
   opacity: '.7'
 }

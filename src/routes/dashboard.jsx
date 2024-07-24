@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Title } from './helper/DocumentTitle'
 import Icon from './helper/MaterialIcon'
@@ -6,9 +6,29 @@ import styles from './Dashboard.module.scss'
 
 export default function About({ title }) {
   Title(title)
+  const [totalForm, setTotalForm] = useState(0)
+  const [totalRespond, setTotalRespond] = useState(0)
+  const [fee, setFee] = useState(0)
+
+  const getTotalForm = async () => await contract.methods._formCounter().call()
+  const getTotalRespond = async () => await contract.methods._respondCounter().call()
+  const getFee = async () => await contract.methods.fee().call()
 
   useEffect(() => {
-    document.querySelector(`#pageTitle`).innerText = title
+    getTotalForm().then((res) => {
+      setTotalForm(_.toNumber(res))
+      setIsLoading(false)
+    })
+
+    getTotalRespond().then((res) => {
+      setTotalRespond(_.toNumber(res))
+      setIsLoading(false)
+    })
+
+    getFee().then((res) => {
+      setFee(_.fromWei(res, `ether`))
+      setIsLoading(false)
+    })
   }, [])
 
   return (
@@ -36,6 +56,33 @@ export default function About({ title }) {
               <div className={`${styles['card-icon']}`}>
                 <Icon name={`storefront`} />
               </div>
+            </div>
+          </div>
+        </div>
+
+        <div className={`grid grid--fit mt-50`} style={{ '--data-width': '200px', gap: '1rem' }}>
+          <div className={`card`}>
+            <div className={`card__body`}>
+              <p>Total Forms</p>
+              <h2>{totalForm}</h2>
+            </div>
+          </div>
+          <div className={`card`}>
+            <div className={`card__body`}>
+              <p>Total Responds</p>
+              <h2>{totalRespond}</h2>
+            </div>
+          </div>
+          <div className={`card`}>
+            <div className={`card__body`}>
+              <p>Total ecosystems</p>
+              <h2>{`4`}</h2>
+            </div>
+          </div>
+          <div className={`card`}>
+            <div className={`card__body`}>
+              <p>Fee</p>
+              <h2>0</h2>
             </div>
           </div>
         </div>

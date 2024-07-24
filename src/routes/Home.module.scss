@@ -6,35 +6,32 @@
 
 .hero {
   position: relative;
-  padding: 4rem 0;
+  padding: 8rem 0;
   isolation: isolate;
 
-  &:before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(225.71deg, #f0f3fa 0%, rgba(255, 255, 255, 0) 37.9%, rgba(255, 255, 255, 0) 62.65%, #f0f3fa 100%);
-    border-radius: var(--global-border-radius);
-    z-index: -1;
+figure {
+  width: 100%;
+  img {
+    width: inherit;
   }
+}
 
   h1 {
-    font-size: 2rem;
+    font-size:  calc(3rem + 0.4vw);
     text-wrap: balance;
     font-family: 'Libre Franklin';
-    font-weight: bolder;
+    font-weight: 900;
     @include small-down() {
       font-size: 7vw;
     }
   }
 
   p {
-    max-width: 400px;
+    max-width: 450px;
     text-wrap: balance;
     line-height: 1.8rem;
-    text-align: center;
     font-weight: 300;
-    font-size: 16px;
+    font-size: calc(1rem + 0.2vw);
 
     @include small-down() {
       font-size: 2.5vw;
@@ -47,9 +44,6 @@
     color: var(--white);
     height: 37px;
     background: var(--black);
-
-    background: linear-gradient(73.41deg, #4285f4 10.84%, #9b72cb 53.34%, #d96570 89.3%);
-
     border-radius: 999px;
     margin: auto 0;
 

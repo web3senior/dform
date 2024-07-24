@@ -26,17 +26,6 @@
       img {
         width: calc(40px + 2.7vw);
       }
-
-      figcaption {
-        font-weight: 600;
-        opacity: 0.7;
-        text-wrap: nowrap;
-        font-size: calc(9px + 0.25vw);
-
-        @include small-down() {
-          font-size: 7.5px;
-        }
-      }
     }
 
     a[class='active'] {
