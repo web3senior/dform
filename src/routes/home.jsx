@@ -54,10 +54,6 @@ function Home({ title }) {
       q: `How do I store form data on-chain?`,
       a: `Form data can be stored as smart contracts or as data within existing smart contracts. The choice depends on the complexity of the form and the desired level of interaction with the data.`,
     },
-    {
-      q: `How do I manage the allowlist for my decentralized form?`,
-      a: `The manager can add addresses to the allowlist, granting those individuals the permission to fill out the form.`,
-    },
   ])
   const [why, setWhy] = useState([
     {
@@ -78,7 +74,20 @@ function Home({ title }) {
     },
   ])
   const [fee, setFee] = useState(0)
-  const [publicMintPrice, setPublicMintPrice] = useState(0)
+  const [ecosystem, setEcosystem] = useState([
+    {
+      name: `Ethereum`,
+    },
+    {
+      name: `Arbitrum`,
+    },
+    {
+      name: `LUKSO`,
+    },
+    {
+      name: `Morph`
+    }
+  ])
   const [totalSupply, setTotalSupply] = useState(0)
   const [distance, setDistance] = useState(0)
   const [toggleCustom, setToggleCustom] = useState(false)
@@ -253,7 +262,7 @@ function Home({ title }) {
   return (
     <>
       <section className={`${styles.section} ms-motion-slideDownIn`}>
-        <div className={`${styles['__container']} __container`} data-width={`medium`}>
+        <div className={`${styles['__container']} __container`} data-width={`large`}>
           <div className={`${styles['hero']} d-f-c flex-column mt-40`}>
             <div className={`mb-40`}>
               <figure>
@@ -274,7 +283,7 @@ function Home({ title }) {
             </div>
           </div>
 
-          <div className={`grid grid--fit mt-50`} style={{ '--data-width': '300px', gap: '1rem' }}>
+          <div className={`grid grid--fit mt-50`} style={{ '--data-width': '200px', gap: '1rem' }}>
             <div className={`card`}>
               <div className={`card__body`}>
                 <p>Total Forms</p>
@@ -289,14 +298,14 @@ function Home({ title }) {
             </div>
             <div className={`card`}>
               <div className={`card__body`}>
-                <p>Total owners</p>
-                <h2>{totalForm}</h2>
+                <p>Total ecosystems</p>
+                <h2>{`4`}</h2>
               </div>
             </div>
             <div className={`card`}>
               <div className={`card__body`}>
                 <p>Fee</p>
-                <h2>{fee} $LYX</h2>
+                <h2>0</h2>
               </div>
             </div>
           </div>
@@ -304,11 +313,22 @@ function Home({ title }) {
 
         <section className={`${styles['ecosystem']}`}>
           <div className={`${styles['ecosystem__container']} __container d-f-c`} data-width={`large`}>
-            <p>Create, manage, and analyze forms with the power of blockchain.</p>
+            <ul>
+              <li>
+                <p>Works with your favorite chain!</p>
+              </li>
+              <li className={`mt-20`}>
+                <Link to={`/ecosystem`}>Browse ecosystems</Link>
+              </li>
+            </ul>
             <div clclassNameass={`flex-1`} style={{ width: `100%` }}>
-              <figure>
-                <img src={Ecosystem} />
-              </figure>
+              <div className={`grid grid--fit mt-50`} style={{ '--data-width': '200px', gap: '1rem' }}>
+                {ecosystem.map((item, i) => (
+                  <div className={`card`} key={i}>
+                    <div className={`card__body`} dangerouslySetInnerHTML={{ __html: `<b>${item.name}</b>` }} />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>

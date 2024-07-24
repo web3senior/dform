@@ -22,6 +22,7 @@
     font-size: 2rem;
     text-wrap: balance;
     font-family: 'Libre Franklin';
+    font-weight: bolder;
     @include small-down() {
       font-size: 7vw;
     }
@@ -33,6 +34,8 @@
     line-height: 1.8rem;
     text-align: center;
     font-weight: 300;
+    font-size: 16px;
+
     @include small-down() {
       font-size: 2.5vw;
     }
@@ -45,7 +48,7 @@
     height: 37px;
     background: var(--black);
 
-background: linear-gradient(73.41deg, #4285F4 10.84%, #9B72CB 53.34%, #D96570 89.3%);
+    background: linear-gradient(73.41deg, #4285f4 10.84%, #9b72cb 53.34%, #d96570 89.3%);
 
     border-radius: 999px;
     margin: auto 0;
@@ -70,10 +73,11 @@ background: linear-gradient(73.41deg, #4285F4 10.84%, #9B72CB 53.34%, #D96570 89
     min-height: 400px;
     height: 100%;
     padding: 8rem;
-    background-color: #F0F3FA;
+    background: linear-gradient(225.71deg, #f0f3fa 0%, rgba(255, 255, 255, 0) 37.9%, rgba(255, 255, 255, 0) 62.65%, #f0f3fa 100%);
     border-radius: var(--global-border-radius);
 
     p {
+      font-family: 'Libre Franklin';
       font-size: calc(1.5rem + 0.5vw);
       text-wrap: balance;
     }
