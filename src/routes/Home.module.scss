@@ -6,18 +6,18 @@
 
 .hero {
   position: relative;
-  padding: 8rem 0;
+  padding: 1rem 0 8rem 0;
   isolation: isolate;
 
-figure {
-  width: 100%;
-  img {
-    width: inherit;
+  figure {
+    width: 100%;
+    img {
+      width: inherit;
+    }
   }
-}
 
   h1 {
-    font-size:  calc(3rem + 0.4vw);
+    font-size: calc(3rem + 0.4vw);
     text-wrap: balance;
     font-family: 'Libre Franklin';
     font-weight: 900;
@@ -30,8 +30,8 @@ figure {
     max-width: 450px;
     text-wrap: balance;
     line-height: 1.8rem;
-    font-weight: 300;
-    font-size: calc(1rem + 0.2vw);
+    font-weight: 400;
+    font-size: calc(1rem + 0.3vw);
 
     @include small-down() {
       font-size: 2.5vw;
