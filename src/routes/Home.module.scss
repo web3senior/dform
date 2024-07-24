@@ -62,3 +62,26 @@ background: linear-gradient(73.41deg, #4285F4 10.84%, #9B72CB 53.34%, #D96570 89
     }
   }
 }
+
+.ecosystem {
+  margin: 2rem;
+
+  &__container {
+    min-height: 400px;
+    height: 100%;
+    padding: 8rem;
+    background-color: #F0F3FA;
+    border-radius: var(--global-border-radius);
+
+    p {
+      font-size: calc(1.5rem + 0.5vw);
+      text-wrap: balance;
+    }
+
+    figure {
+      img {
+        width: 100%;
+      }
+    }
+  }
+}

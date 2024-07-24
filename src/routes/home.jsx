@@ -13,7 +13,7 @@ import Coin from './../../src/assets/coin.png'
 import Slide1 from './../../src/assets/slide1.png'
 import Slide2 from './../../src/assets/slide1.png'
 import Hero from './../../src/assets/hero.svg'
-
+import Ecosystem from './../../src/assets/ecosystem.svg'
 import party from 'party-js'
 import styles from './Home.module.scss'
 
@@ -302,6 +302,17 @@ function Home({ title }) {
           </div>
         </div>
 
+        <section className={`${styles['ecosystem']}`}>
+          <div className={`${styles['ecosystem__container']} __container d-f-c`} data-width={`large`}>
+            <p>Create, manage, and analyze forms with the power of blockchain.</p>
+            <div clclassNameass={`flex-1`} style={{ width: `100%` }}>
+              <figure>
+                <img src={Ecosystem} />
+              </figure>
+            </div>
+          </div>
+        </section>
+
         <div className={`__container ${styles['']}`} data-width={`large`}>
           <Heading title={`Why ${import.meta.env.VITE_NAME}?`} subTitle={`Your data, your way, decentralized`}></Heading>
 
@@ -316,7 +327,7 @@ function Home({ title }) {
         </div>
 
         <div className={`__container ${styles['']}`} data-width={`large`}>
-          <h1 className={`mb-40 mt-40`}>Frequently Asked Questions (FAQs)</h1>
+          <Heading title={`FAQs`} subTitle={`Frequently Asked Questions`}></Heading>
           {faq.map((item, i) => (
             <details className={`transition`} key={i}>
               <summary>{item.q}</summary>
