@@ -12,9 +12,6 @@ function Expired() {
         </div>
         <h1>Expired!</h1>
         <p>The form has now expired.</p>
-      </div>
-
-      <div className={`${styles['page__close']} d-f-c`}>
         <Link to={`/`}>Back to home</Link>
       </div>
     </section>
