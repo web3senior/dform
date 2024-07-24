@@ -59,6 +59,24 @@ function Home({ title }) {
       a: `The manager can add addresses to the allowlist, granting those individuals the permission to fill out the form.`,
     },
   ])
+  const [why, setWhy] = useState([
+    {
+      title: `Security First`,
+      description: `Dform secures your data and gives you control.`,
+    },
+    {
+      title: `Efficiency Boost`,
+      description: `Build forms faster and save money with Dform.`,
+    },
+    {
+      title: `Future-Proof`,
+      description: `Dform is the future of form building, powered by blockchain.`,
+    },
+    {
+      title: `User-Friendly`,
+      description: `Easy to use for everyone.`,
+    },
+  ])
   const [fee, setFee] = useState(0)
   const [publicMintPrice, setPublicMintPrice] = useState(0)
   const [totalSupply, setTotalSupply] = useState(0)
@@ -284,17 +302,20 @@ function Home({ title }) {
           </div>
         </div>
 
-        <div className={`__container ${styles['']}`} data-width={`xlarge`}>
-          <Heading title={`Why ${import.meta.env.VITE_NAME}?`} subTitle={`Lorem ipsum sudo`}></Heading>
-          {faq.map((item, i) => (
-            <details className={`transition`} key={i}>
-              <summary>{item.q}</summary>
-              <div dangerouslySetInnerHTML={{ __html: item.a }} />
-            </details>
-          ))}
+        <div className={`__container ${styles['']}`} data-width={`large`}>
+          <Heading title={`Why ${import.meta.env.VITE_NAME}?`} subTitle={`Your data, your way, decentralized`}></Heading>
+
+          <div className={`grid grid--fit mt-50`} style={{ '--data-width': '200px', gap: '1rem' }}>
+            {why.map((item, i) => (
+              <div className={`card`} key={i}>
+                <div className={`card__header`} dangerouslySetInnerHTML={{ __html: `<b>${item.title}</b>` }} />
+                <div className={`card__body`} dangerouslySetInnerHTML={{ __html: item.description }} />
+              </div>
+            ))}
+          </div>
         </div>
 
-        <div className={`__container ${styles['']}`} data-width={`medium`}>
+        <div className={`__container ${styles['']}`} data-width={`large`}>
           <h1 className={`mb-40 mt-40`}>Frequently Asked Questions (FAQs)</h1>
           {faq.map((item, i) => (
             <details className={`transition`} key={i}>

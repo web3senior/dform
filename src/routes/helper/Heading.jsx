@@ -20,8 +20,3 @@ const Heading = (props) => (
 )
 
 export default Heading
-
-Heading.defaultProps = {
-  title: 'No Title',
-  lead: '----',
-}
