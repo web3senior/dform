@@ -4,6 +4,8 @@ import { Title } from './helper/DocumentTitle'
 
 import MaterialIcon from './helper/MaterialIcon'
 import Shimmer from './helper/Shimmer'
+import Loading from './components/Loading'
+import Expired from './components/Expired'
 import { getTournamentList } from '../util/api'
 import toast, { Toaster } from 'react-hot-toast'
 import { useAuth, web3, _, contract } from '../contexts/AuthContext'
@@ -35,6 +37,8 @@ function Home({ title }) {
   const [respond, setRespond] = useState([])
   const [respondIPFS, setRespondIPFS] = useState()
   const [activeQ, setActiveQ] = useState(0)
+  const [isExpired, setIsExpired] = useState(false)
+
   const auth = useAuth()
   const navigate = useNavigate()
   const formWrapperRef = useRef()
@@ -42,6 +46,7 @@ function Home({ title }) {
   const answerRef = useRef()
   const params = useParams()
 
+  const getFormList = async (sender) => await contract.methods.formList(sender).call()
   const getForm = async (id) => await contract.methods.form(id).call()
   const getTotalRespond = async () => await contract.methods._respondCounter().call()
   const getFee = async () => await contract.methods.fee().call()
@@ -216,18 +221,23 @@ function Home({ title }) {
   }
 
   useEffect(() => {
+    getFormList(auth.wallet).then((res) => {
+      console.log(res)
+      setForm(res)
+    })
+
     // Create an object on localStorage if doesn't exsist
     if (getRespond() === null) localStorage.setItem(`${params.formId}`, JSON.stringify([]))
     else setRespond(getRespond())
 
     getIsExpired(params.formId).then((res) => {
-      console.log(res)
+      setIsExpired(res)
+      setIsLoading(false)
     })
 
     // Get form
     getForm(params.formId).then((res) => {
       console.log(res)
-      setIsLoading(false)
       setForm(res)
       if (res.metadata === '') return
       fetchIPFS(res.metadata).then((data) => {
@@ -236,6 +246,10 @@ function Home({ title }) {
       })
     })
   }, [])
+
+  if (isLoading) return <Loading />
+
+  if (isExpired) return <Expired/>
 
   return (
     <>

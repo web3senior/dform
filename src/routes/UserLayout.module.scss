@@ -15,7 +15,7 @@
     grid-column-start: 2;
     grid-column-end: 3;
     color: #2e2e2e;
-    padding: 1.5rem 0;
+    padding: 1.5rem 1rem;
     width: 100%;
 
     button {
@@ -25,6 +25,9 @@
     .logo {
       column-gap: 0.5rem;
       font-size: 14px;
+  
+        width: 87px;
+ 
     }
 
     a {

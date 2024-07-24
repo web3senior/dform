@@ -91,15 +91,15 @@ export default function Root() {
       <div className={styles.layout}>
         <header className={`${styles.header}`}>
           <div className={`__container d-flex flex-row align-items-center justify-content-between`} data-width={`xxlarge`}>
-            <div className={`${styles['left-side']} d-flex flex-row align-items-center justify-content-start`}>
+            
+           
               <Link to={`/`}>
-                <div className={`d-flex flex-row align-items-center justify-content-start`} style={{ columnGap: `1rem` }}>
-                  <figure className={`${styles['logo']} d-flex flex-row align-items-center justify-content-start`}>
+                  <figure className={`${styles['logo']}`}>
                     <img alt={import.meta.env.VITE_TITLE} src={Logo} />
+                    <figcaption>By {import.meta.env.VITE_AUTHOR}</figcaption>
                   </figure>
-                </div>
               </Link>
-            </div>
+      
 
             <div className={`d-flex align-items-center justify-content-end`}>
               <ul className={`${styles['nav']} d-flex flex-row align-items-center justify-content-start`}>
@@ -201,6 +201,75 @@ export default function Root() {
         <main>
           <Outlet />
         </main>
+
+        <footer className={`${styles['footer']}`}>
+          <div className={`__container`} data-width={`large`}>
+            <div className="grid grid--fit" style={{ '--data-width': `200px`, columnGap: `1rem` }}>
+              <div className={`footer__card`}>
+                <h3>{import.meta.env.VITE_NAME}</h3>
+                <div className={`d-flex flex-row align-items-center justify-content-start ${styles['social']}`} style={{ columnGap: '.5rem' }}>
+                  <a href={`//x.com/ArattaLabs`} target={`_blank`}>
+                    <img alt={`X`} src={XIcon} />
+                  </a>
+                  <a href={`//github.com/web3senior/bluepoint`} target={`_blank`}>
+                    <img alt={`GitHub`} src={GitHubIcon} />
+                  </a>
+                  <a href={`//t.me/arattalabs`} target={`_blank`}>
+                    <img alt={`Telegram`} src={TelegramIcon} />
+                  </a>
+                </div>
+                <p>
+                  @ {new Date().getFullYear()} {import.meta.env.VITE_NAME}. All rights reserved.
+                </p>
+              </div>
+
+              <div className={`footer__card`}>
+                <h3 className={`text-left`}>Use cases</h3>
+                <ul className={`d-flex flex-column align-items-start justify-content-center`}>
+                  <li>
+                    <Link to={``}>Telegram</Link>
+                  </li>
+                  <li>
+                    <Link to={``}>Wallet Address</Link>
+                  </li>
+                </ul>
+              </div>
+
+              <div className={`footer__card`}>
+                <h3 className={`text-left`}>Explore</h3>
+                <ul className={`d-flex flex-column align-items-start justify-content-center`}>
+                  <li>
+                    <Link to={``}>Roadmap</Link>
+                  </li>
+                  <li>
+                    <Link to={``}>Twitter</Link>
+                  </li>
+                  <li>
+                    <Link to={``}>Telegram</Link>
+                  </li>
+                  <li>
+                    <Link to={``}>Roadmap</Link>
+                  </li>
+                </ul>
+              </div>
+
+              <div className={`footer__card`}>
+                <h3 className={`text-left`}>Developers</h3>
+                <ul className={`d-flex flex-column align-items-start justify-content-center`}>
+                  <li>
+                    <Link to={``}>Contract</Link>
+                  </li>
+                  <li>
+                    <Link to={``}>Admin</Link>
+                  </li>
+                  <li>
+                    <Link to={``}>Repo</Link>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </footer>
       </div>
     </>
   )

@@ -15,6 +15,7 @@ import About from './routes/about.jsx'
 import Form from './routes/form.jsx'
 import Fee from './routes/fee.jsx'
 import Forms from './routes/forms.jsx'
+import NewForm from './routes/newForm.jsx'
 import TermsOfService from './routes/terms-of-service.jsx'
 import PrivacyPolicy from './routes/privacy-policy.jsx'
 import Ecosystem from './routes/ecosystem.jsx'
@@ -91,7 +92,17 @@ const router = createBrowserRouter([
       },
       {
         path: `forms`,
-        element: <Forms title={`Forms`} />,
+        errorElement: <ErrorPage />,
+        children: [
+          {
+            index: true,
+            element: <Forms title={`Forms`}  replace />,
+          },
+          {
+            path: `new`,
+            element: <NewForm title={`New Form`} />,
+          },
+        ]
       },
       {
         path: `point`,

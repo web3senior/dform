@@ -4,6 +4,7 @@ import { Title } from './helper/DocumentTitle'
 
 import MaterialIcon from './helper/MaterialIcon'
 import Shimmer from './helper/Shimmer'
+import Heading from './helper/Heading'
 import { getTournamentList } from './../util/api'
 import toast, { Toaster } from 'react-hot-toast'
 import { useAuth, web3, _, contract } from './../contexts/AuthContext'
@@ -284,6 +285,16 @@ function Home({ title }) {
         </div>
 
         <div className={`__container ${styles['']}`} data-width={`xlarge`}>
+          <Heading title={`Why ${import.meta.env.VITE_NAME}?`} subTitle={`Lorem ipsum sudo`}></Heading>
+          {faq.map((item, i) => (
+            <details className={`transition`} key={i}>
+              <summary>{item.q}</summary>
+              <div dangerouslySetInnerHTML={{ __html: item.a }} />
+            </details>
+          ))}
+        </div>
+
+        <div className={`__container ${styles['']}`} data-width={`medium`}>
           <h1 className={`mb-40 mt-40`}>Frequently Asked Questions (FAQs)</h1>
           {faq.map((item, i) => (
             <details className={`transition`} key={i}>

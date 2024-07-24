@@ -13,6 +13,7 @@ export default function About({ title }) {
 
   return (
     <section className={styles.section}>
+      <h3 id={`pageTitle`} />
       <div className={`${styles['container']} __container ms-motion-slideUpIn`} data-width={`xxlarge`}>
         <div className="grid grid--fit" style={{ '--data-width': `200px`, columnGap: `1rem` }}>
           <div className={`card`}>
@@ -41,14 +42,14 @@ export default function About({ title }) {
 
         <h3 className={`mt-40`}>Claimed Transactions</h3>
         <div className={`card`}>
-       <div className={`card__body`}>
-       <span>alo</span>
-          <span>200</span>
-          <span>Buy</span>
-          <span>140$</span>
-          <span>Amir</span>
-          <span>07/07/2024</span>
-       </div>
+          <div className={`card__body`}>
+            <span>alo</span>
+            <span>200</span>
+            <span>Buy</span>
+            <span>140$</span>
+            <span>Amir</span>
+            <span>07/07/2024</span>
+          </div>
         </div>
         <div className={`card`}>
           <span>alo</span>

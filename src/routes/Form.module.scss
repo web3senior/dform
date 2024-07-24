@@ -1,9 +1,45 @@
 @import './../styles/components/responsive';
+@import url(https://fonts.googleapis.com/css?family=Libre+Franklin:400,500,600|Miriam+Libre:400);
+
+.expired {
+  height: inherit;
+  font-family: Libre Franklin;
+  font-size: 16px;
+  background: #F7F7F9;
+
+  &__container {
+    row-gap: 1rem;
+    background: var(--white);
+    padding: 2rem 2.5rem;
+    border-radius: var(--global-border-radius);
+  }
+
+  &__icon {
+    background: linear-gradient(45deg, #ede8ff 0%, #d8eefd 100%);
+    width: 66px;
+    height: 66px;
+    border-radius: 26px;
+    color: #6b538e;
+
+    span {
+      font-size: 3.4rem;
+    }
+  }
+
+  p {
+    font-weight: 200;
+  }
+
+  button {
+    background-color: var(--color-black);
+    font-weight: bold;
+    color: var(--white);
+  }
+}
 
 .section {
   height: inherit;
-
-  font-size: calc( 16px + 0.15vw);
+  font-size: calc(16px + 0.15vw);
 
   > div {
     row-gap: 1rem;
