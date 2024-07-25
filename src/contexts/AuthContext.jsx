@@ -7,7 +7,7 @@ import ABI from './../abi/dform.json'
 import toast, { Toaster } from 'react-hot-toast'
 import Web3 from 'web3'
 
-export const PROVIDER = window.lukso || window.ethereum 
+export const PROVIDER = window.lukso || window.ethereum
 export const web3 = new Web3(PROVIDER)
 export const contract = new web3.eth.Contract(ABI, import.meta.env.VITE_DFORM_CONTRACT_TESTNET)
 export const _ = web3.utils
@@ -17,7 +17,8 @@ export function useAuth() {
   return useContext(AuthContext)
 }
 
-export const isAuth = async () => await localStorage.getItem('accessToken')
+export const readBalance = async () => await web3.eth.getBalance(auth.wallet).then((balance) => web3.utils.fromWei(balance, 'ether').toString())
+export const isAuth = async () =>  localStorage.getItem('accessToken')
 
 export const chainID = async () => await web3.eth.getChainId()
 
@@ -113,7 +114,7 @@ export function AuthProvider({ children }) {
       setWallet(accounts[0])
       //fetchProfile(accounts[0]).then((res) => setProfile(res))
       toast.dismiss(loadingToast)
-      toast.success(`UP successfuly connected`)
+      toast.success(`Wallet Connected!`)
       navigate(`/`)
       return accounts[0]
     } catch (error) {
@@ -123,7 +124,7 @@ export function AuthProvider({ children }) {
   }
 
   useEffect(() => {
-    console.log(`Contract`,import.meta.env.VITE_DFORM_CONTRACT_TESTNET)
+    console.log(`Contract`, import.meta.env.VITE_DFORM_CONTRACT_TESTNET)
     setLoading(true)
     isWalletConnected().then((addr) => {
       if (addr !== undefined) {
