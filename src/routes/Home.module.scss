@@ -8,14 +8,12 @@
   position: relative;
   isolation: isolate;
 
-  figure {
-    width: 100%;
-
     img {
       border-radius: var(--global-border-radius);
-      width: inherit;
+      width: 100%;
+   max-width: 100vw;
     }
-  }
+
 
   h1 {
     font-size: calc(3rem + 0.4vw);
@@ -23,7 +21,7 @@
     font-family: 'Libre Franklin';
     font-weight: 900;
     @include small-down() {
-      font-size: 7vw;
+      font-size: 6vw;
     }
   }
 
@@ -61,12 +59,12 @@
 }
 
 .ecosystem {
-  margin: 2rem;
+ 
 
   &__container {
     min-height: 400px;
     height: 100%;
-    padding: 8rem;
+
     background: linear-gradient(225.71deg, #f0f3fa 0%, rgba(255, 255, 255, 0) 37.9%, rgba(255, 255, 255, 0) 62.65%, #f0f3fa 100%);
     border-radius: var(--global-border-radius);
 

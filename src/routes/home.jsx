@@ -1,5 +1,5 @@
 import { Suspense, useState, useEffect, useRef } from 'react'
-import { useLoaderData, defer, Form, Await , Link, useNavigate } from 'react-router-dom'
+import { useLoaderData, defer, Form, Await, Link, useNavigate } from 'react-router-dom'
 import { Title } from './helper/DocumentTitle'
 
 import MaterialIcon from './helper/MaterialIcon'
@@ -243,43 +243,29 @@ function Home({ title }) {
     <>
       <section className={`${styles.section} ms-motion-slideDownIn`}>
         <div className={`${styles['__container']} __container`} data-width={`xlarge`}>
-  
-          <div className={`${styles['hero']} grid grid--fit mt-50`} style={{ '--data-width': '200px', gap: '1rem' }}>
-            
-            <div className={`grid__item d-flex flex-column align-items-start justify-content-center`} style={{  rowGap: '2.4rem' }}>
+          <div className={`${styles['hero']} grid grid--fit`} style={{ '--data-width': '400px', gap: '1rem' }}>
+            <div className={`grid__item d-flex flex-column align-items-start justify-content-center`} style={{ rowGap: '2.4rem' }}>
               <h1 className={`text-uppercase`}>
                 Data forms you can <b className={`color-primary`}>trust</b>
               </h1>
 
               <p className={``}>
-              Trustworthy forms, secure, transparent data management— <b>All on blockchain</b>
+                Trustworthy forms, secure, transparent data management— <b>All on blockchain</b>
               </p>
-
-           
-                <button onClick={() => auth.connectWallet()}>Get started—it's free</button>
-          
+              <button onClick={() => auth.connectWallet()}>Get started—it's free</button>
             </div>
-
-            <div className={`grid__item d-flex flex-column align-items-end justify-content-center`}>
-            <figure>
+            <figure className={`grid__item `}>
               <img alt={`Form`} src={Hero} />
             </figure>
-            </div>
           </div>
         </div>
 
         <section className={`${styles['ecosystem']}`}>
-          <div className={`${styles['ecosystem__container']} __container d-f-c`} data-width={`xlarge`}>
-            <ul>
-              <li>
-                <p>Works with your favorite chain!</p>
-              </li>
-              <li className={`mt-20`}>
-                <Link to={`/ecosystem`}>Browse ecosystems</Link>
-              </li>
-            </ul>
-            <div clclassNameass={`flex-1`} style={{ width: `100%` }}>
-              <div className={`grid grid--fit mt-50`} style={{ '--data-width': '200px', gap: '1rem' }}>
+          <div className={`${styles['ecosystem__container']} __container d-f-c flex-column`} data-width={`xlarge`} style={{  gap: '1rem' }}>
+            <h2>Works with your favorite chain!</h2>
+           
+            <div className={` __container `} data-width={`small`}>
+              <div className={`grid grid--fit`} style={{ '--data-width': '200px', gap: '1rem' }}>
                 {ecosystem.map((item, i) => (
                   <div className={`card`} key={i}>
                     <div className={`card__body`} dangerouslySetInnerHTML={{ __html: `<b>${item.name}</b>` }} />
@@ -287,13 +273,15 @@ function Home({ title }) {
                 ))}
               </div>
             </div>
+
+            <Link to={`/ecosystem`}>Browse ecosystems</Link>
           </div>
         </section>
 
         <div className={`__container ${styles['']}`} data-width={`xlarge`}>
           <Heading title={`Why ${import.meta.env.VITE_NAME}?`} subTitle={`Your data, your way, decentralized`}></Heading>
 
-          <div className={`grid grid--fit mt-50`} style={{ '--data-width': '200px', gap: '1rem' }}>
+          <div className={`grid grid--fit mt-50`} style={{ '--data-width': '300px', gap: '1rem' }}>
             {why.map((item, i) => (
               <div className={`card`} key={i}>
                 <div className={`card__header`} dangerouslySetInnerHTML={{ __html: `<b>${item.title}</b>` }} />
