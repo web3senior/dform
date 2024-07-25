@@ -19,6 +19,7 @@ import NewForm from './routes/newForm.jsx'
 import TermsOfService from './routes/terms-of-service.jsx'
 import PrivacyPolicy from './routes/privacy-policy.jsx'
 import Ecosystem from './routes/ecosystem.jsx'
+import Solution from './routes/solution.jsx'
 import Dashboard from './routes/dashboard.jsx'
 import Point from './routes/point.jsx'
 import Admin from './routes/admin.jsx'
@@ -53,6 +54,10 @@ const router = createBrowserRouter([
         element: <Ecosystem title={`Ecosystem`} />,
       },
       {
+        path: `solution`,
+        element: <Solution title={`Solution`} />,
+      },
+      {
         path: `admin`,
         element: <Admin title={`Admin`} />,
       },
@@ -68,8 +73,12 @@ const router = createBrowserRouter([
   },
   {
     path: `:network/:formId`,
-    element: <AuthProvider><Form/></AuthProvider>,
-        errorElement: <ErrorPage />,
+    element: (
+      <AuthProvider>
+        <Form />
+      </AuthProvider>
+    ),
+    errorElement: <ErrorPage />,
   },
   {
     path: 'user',
@@ -96,13 +105,13 @@ const router = createBrowserRouter([
         children: [
           {
             index: true,
-            element: <Forms title={`Forms`}  replace />,
+            element: <Forms title={`Forms`} replace />,
           },
           {
             path: `new`,
             element: <NewForm title={`New Form`} />,
           },
-        ]
+        ],
       },
       {
         path: `point`,

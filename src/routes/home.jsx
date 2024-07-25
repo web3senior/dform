@@ -1,5 +1,5 @@
 import { Suspense, useState, useEffect, useRef } from 'react'
-import { useLoaderData, defer, Form, Await, useRouteError, Link, useNavigate } from 'react-router-dom'
+import { useLoaderData, defer, Form, Await , Link, useNavigate } from 'react-router-dom'
 import { Title } from './helper/DocumentTitle'
 
 import MaterialIcon from './helper/MaterialIcon'
@@ -242,11 +242,12 @@ function Home({ title }) {
   return (
     <>
       <section className={`${styles.section} ms-motion-slideDownIn`}>
-        <div className={`${styles['__container']} __container`} data-width={`large`}>
+        <div className={`${styles['__container']} __container`} data-width={`xlarge`}>
   
           <div className={`${styles['hero']} grid grid--fit mt-50`} style={{ '--data-width': '200px', gap: '1rem' }}>
-            <div className={`d-flex flex-column align-items-start`}>
-              <h1 className={`text-uppercase mb-10`}>
+            
+            <div className={`grid__item d-flex flex-column align-items-start justify-content-center`} style={{  rowGap: '2.4rem' }}>
+              <h1 className={`text-uppercase`}>
                 Data forms you can <b className={`color-primary`}>trust</b>
               </h1>
 
@@ -254,12 +255,12 @@ function Home({ title }) {
               Trustworthy forms, secure, transparent data management— <b>All on blockchain</b>
               </p>
 
-              <div className={`mt-20`}>
+           
                 <button onClick={() => auth.connectWallet()}>Get started—it's free</button>
-              </div>
+          
             </div>
 
-            <div className={`d-flex flex-column align-items-end justify-content-center`}>
+            <div className={`grid__item d-flex flex-column align-items-end justify-content-center`}>
             <figure>
               <img alt={`Form`} src={Hero} />
             </figure>
@@ -268,7 +269,7 @@ function Home({ title }) {
         </div>
 
         <section className={`${styles['ecosystem']}`}>
-          <div className={`${styles['ecosystem__container']} __container d-f-c`} data-width={`large`}>
+          <div className={`${styles['ecosystem__container']} __container d-f-c`} data-width={`xlarge`}>
             <ul>
               <li>
                 <p>Works with your favorite chain!</p>
@@ -289,7 +290,7 @@ function Home({ title }) {
           </div>
         </section>
 
-        <div className={`__container ${styles['']}`} data-width={`large`}>
+        <div className={`__container ${styles['']}`} data-width={`xlarge`}>
           <Heading title={`Why ${import.meta.env.VITE_NAME}?`} subTitle={`Your data, your way, decentralized`}></Heading>
 
           <div className={`grid grid--fit mt-50`} style={{ '--data-width': '200px', gap: '1rem' }}>
@@ -302,7 +303,7 @@ function Home({ title }) {
           </div>
         </div>
 
-        <div className={`__container ${styles['']}`} data-width={`large`}>
+        <div className={`__container ${styles['']}`} data-width={`xlarge`}>
           <Heading title={`FAQs`} subTitle={`Frequently Asked Questions`}></Heading>
           {faq.map((item, i) => (
             <details className={`transition`} key={i}>

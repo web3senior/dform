@@ -1,7 +1,7 @@
 :root {
   font-family: var(--ff-segoe);
   font-weight: 400;
-  font-size: 13px;
+  font-size: 16px;
 
   // color-scheme: light dark;
   // color: rgba(255, 255, 255, 0.87);
@@ -20,6 +20,8 @@ body {
   height: 100%;
   overflow-x: hidden;
 
+
+
   ::selection {
     color: var(--white);
     background-color: var(--color-primary);
@@ -27,7 +29,8 @@ body {
 }
 
 #root {
-  height: inherit;
+  display: grid;
+  grid-template-rows: auto 1fr;
 }
 
 input {
