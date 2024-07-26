@@ -12,6 +12,7 @@ import TelegramIcon from './../../src/assets/icon-telegram.svg'
 import XIcon from './../../src/assets/icon-x.svg'
 import CGIcon from './../../src/assets/icon-cg.svg'
 import GitHubIcon from './../../src/assets/icon-github.svg'
+import EthereumLogo from './../../src/assets/ethereum-logo.svg'
 import ArbitrumLogo from './../../src/assets/arbitrum-logo.svg'
 import LuksoLogo from './../../src/assets/lukso.svg'
 import LogoWhite from './../../src/assets/logo-white.svg'
@@ -45,8 +46,12 @@ const links = [
 export default function Root() {
   const [network, setNetwork] = useState()
   const [isLoading, setIsLoading] = useState()
-  const [defaultChain, setDefaultChain] = useState(localStorage.getItem(`defaultChain`).toLowerCase())
+  const [defaultChain, setDefaultChain] = useState()
   const [chain, setChain] = useState([
+    {
+      name: `Ethereum`,
+      logo: EthereumLogo,
+    },
     {
       name: `Arbitrum`,
       logo: ArbitrumLogo,
@@ -66,6 +71,10 @@ export default function Root() {
     const filteredChain = chain.filter((item, i) => item.name.toLowerCase() === defaultChain.toLowerCase())
     return <img alt={`${filteredChain[0].name}`} src={`${filteredChain[0].logo}`} title={`${filteredChain[0].name}`} />
   }
+
+  useEffect(() => {
+    setDefaultChain('Ethereum')
+  }, [])
 
   return (
     <>
@@ -96,10 +105,13 @@ export default function Root() {
 
           {/* Connect */}
           <div className={`d-flex flex-row align-items-center justify-content-end`} style={{ columnGap: `.3rem` }}>
-            <div className={`${styles['network']} d-flex align-items-center justify-content-end`} onClick={()=>{
-              document.querySelector(`.${styles['network-list']}`).classList.toggle(`d-none`)
-            }}>
-              <SelectedChain />
+            <div
+              className={`${styles['network']} d-flex align-items-center justify-content-end`}
+              onClick={() => {
+                document.querySelector(`.${styles['network-list']}`).classList.toggle(`d-none`)
+              }}
+            >
+              {defaultChain && <SelectedChain />}
             </div>
 
             {!auth.wallet ? (
@@ -165,11 +177,11 @@ export default function Root() {
         </div>
       </header>
 
-      <main>
+      <main className={`${styles.main}`}>
         <Outlet />
       </main>
 
-      <footer className={`${styles['footer']}`}>
+      <footer className={`${styles.footer}`}>
         <div className={`__container`} data-width={`large`}>
           <div className="grid grid--fit" style={{ '--data-width': `200px`, columnGap: `1rem` }}>
             <div className={`footer__card`}>

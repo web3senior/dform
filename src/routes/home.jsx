@@ -10,10 +10,10 @@ import toast, { Toaster } from 'react-hot-toast'
 import { useAuth, web3, _, contract } from './../contexts/AuthContext'
 import ABI from './../abi/dform.json'
 import Coin from './../../src/assets/coin.png'
-import Slide1 from './../../src/assets/slide1.png'
-import Slide2 from './../../src/assets/slide1.png'
+import EthereumLogo from './../../src/assets/ethereum-logo.svg'
+import ArbitrumLogo from './../../src/assets/arbitrum-logo.svg'
+import LuksoLogo from './../../src/assets/lukso-logo.svg'
 import Hero from './../../src/assets/hero.svg'
-import Ecosystem from './../../src/assets/ecosystem.svg'
 import party from 'party-js'
 import styles from './Home.module.scss'
 
@@ -75,15 +75,19 @@ function Home({ title }) {
   const [ecosystem, setEcosystem] = useState([
     {
       name: `Ethereum`,
+      logo: EthereumLogo,
     },
     {
       name: `Arbitrum`,
+      logo: ArbitrumLogo,
     },
     {
       name: `LUKSO`,
+      logo: LuksoLogo,
     },
     {
       name: `Morph`,
+      logo: ArbitrumLogo,
     },
   ])
   const [totalSupply, setTotalSupply] = useState(0)
@@ -261,16 +265,12 @@ function Home({ title }) {
         </div>
 
         <section className={`${styles['ecosystem']}`}>
-          <div className={`${styles['ecosystem__container']} __container d-f-c flex-column`} data-width={`xlarge`} style={{  gap: '1rem' }}>
-            <h2>Works with your favorite chain!</h2>
-           
-            <div className={` __container `} data-width={`small`}>
-              <div className={`grid grid--fit`} style={{ '--data-width': '200px', gap: '1rem' }}>
-                {ecosystem.map((item, i) => (
-                  <div className={`card`} key={i}>
-                    <div className={`card__body`} dangerouslySetInnerHTML={{ __html: `<b>${item.name}</b>` }} />
-                  </div>
-                ))}
+          <div className={`${styles['ecosystem__container']} __container d-f-c flex-column`} data-width={`xlarge`} style={{ gap: '1rem' }}>
+            <p>Dform seamlessly integrates with your favorite chains, including Ethereum, Arbitrum, and more!</p>
+
+            <div className={` __container `} data-width={`large`}>
+              <div className={`d-f-c flex-wrap`} style={{gap: '1rem' }}>
+                {ecosystem.map((item, i) => <figure><img src={item.logo} key={i} /></figure>)}
               </div>
             </div>
 
