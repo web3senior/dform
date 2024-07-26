@@ -67,15 +67,13 @@ export default function Root() {
     return <img alt={`${filteredChain[0].name}`} src={`${filteredChain[0].logo}`} title={`${filteredChain[0].name}`} />
   }
 
-  useEffect(() => {}, [])
-
   return (
     <>
       <Toaster />
       <ScrollRestoration />
 
       <header className={`${styles.header}`}>
-        <div className={`__container d-flex flex-row align-items-center justify-content-between`} data-width={`xlarge`}>
+        <div className={`__container d-flex flex-row align-items-center justify-content-between`} data-width={`xxlarge`}>
           {/* Logo */}
           <Link to={`/`}>
             <figure className={`${styles['logo']}`}>

@@ -19,6 +19,7 @@ import NewForm from './routes/newForm.jsx'
 import TermsOfService from './routes/terms-of-service.jsx'
 import PrivacyPolicy from './routes/privacy-policy.jsx'
 import Ecosystem from './routes/ecosystem.jsx'
+import Template from './routes/template.jsx'
 import Solution from './routes/solution.jsx'
 import Dashboard from './routes/dashboard.jsx'
 import Point from './routes/point.jsx'
@@ -100,7 +101,11 @@ const router = createBrowserRouter([
         element: <Dashboard title={`Dashboard`} />,
       },
       {
-        path: `forms`,
+        path: `template`,
+        element: <Template title={`Template`} />,
+      },
+      {
+        path: `form`,
         errorElement: <ErrorPage />,
         children: [
           {

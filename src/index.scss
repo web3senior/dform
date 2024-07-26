@@ -20,17 +20,20 @@ body {
   height: 100%;
   overflow-x: hidden;
 
-
-
   ::selection {
     color: var(--white);
     background-color: var(--color-primary);
   }
 }
 
+body {
+}
+
 #root {
+  height: inherit;
   display: grid;
-  grid-template-rows: auto 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: repeat(1, 1fr);
 }
 
 input {

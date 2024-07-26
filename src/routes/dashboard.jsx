@@ -34,12 +34,12 @@ export default function About({ title }) {
   return (
     <section className={styles.section}>
       <h3 id={`pageTitle`} />
-      <div className={`${styles['container']} __container ms-motion-slideUpIn`} data-width={`xxlarge`}>
+      <div className={`${styles['container']} __container ms-motion-slideUpIn`} data-width={`medium`}>
         <div className="grid grid--fit" style={{ '--data-width': `200px`, columnGap: `1rem` }}>
           <div className={`card`}>
             <div className={`card__body d-flex align-items-center justify-content-between`}>
               <div>
-                <span>Total gift card</span>
+                <span>Total questions</span>
                 <h1>400</h1>
               </div>
               <div className={`${styles['card-icon']}`}>
@@ -60,22 +60,22 @@ export default function About({ title }) {
           </div>
         </div>
 
-        <div className={`grid grid--fit mt-50`} style={{ '--data-width': '200px', gap: '1rem' }}>
+        <div className={`grid grid--fit mt-50`} style={{ '--data-width': '100px', gap: '.5rem' }}>
           <div className={`card`}>
             <div className={`card__body`}>
-              <p>Total Forms</p>
+              <p>Forms</p>
               <h2>{totalForm}</h2>
             </div>
           </div>
           <div className={`card`}>
             <div className={`card__body`}>
-              <p>Total Responds</p>
+              <p>Responds</p>
               <h2>{totalRespond}</h2>
             </div>
           </div>
           <div className={`card`}>
             <div className={`card__body`}>
-              <p>Total ecosystems</p>
+              <p>Ecosystems</p>
               <h2>{`4`}</h2>
             </div>
           </div>
@@ -87,7 +87,7 @@ export default function About({ title }) {
           </div>
         </div>
 
-        <h3 className={`mt-40`}>Claimed Transactions</h3>
+        <h3 className={`mt-40`}>Latest form</h3>
         <div className={`card`}>
           <div className={`card__body`}>
             <span>alo</span>
@@ -98,22 +98,6 @@ export default function About({ title }) {
             <span>07/07/2024</span>
           </div>
         </div>
-        <div className={`card`}>
-          <span>alo</span>
-          <span>200</span>
-          <span>140$</span>
-          <span>Amir</span>
-          <span>07/07/2024</span>
-        </div>
-        <div className={`card`}>
-          <span>alo</span>
-          <span>200</span>
-          <span>140$</span>
-          <span>Amir</span>
-          <span>07/07/2024</span>
-        </div>
-
-        <Link to={`d`}>View all</Link>
       </div>
     </section>
   )

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { Title } from './helper/DocumentTitle'
 import toast, { Toaster } from 'react-hot-toast'
 import { useAuth, web3, _, contract } from './../contexts/AuthContext'
+import Heading from './helper/Heading'
 import Icon from './helper/MaterialIcon'
 import styles from './Dashboard.module.scss'
 
@@ -48,11 +49,11 @@ export default function About({ title }) {
     var fullyear = date.getFullYear()
 
     // Minutes part from the timestamp
-    var month =date.getMonth()
+    var month = date.getMonth()
 
     // Seconds part from the timestamp
     var day = date.getDay()
-    
+
     // Hours part from the timestamp
     var hours = date.getHours()
 
@@ -63,13 +64,13 @@ export default function About({ title }) {
     var seconds = '0' + date.getSeconds()
 
     // Will display time in 10:30:23 format
-    var formattedTime =`${day}/${month}/${fullyear} `+ hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2)
+    var formattedTime = `${day}/${month}/${fullyear} ` + hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2)
 
     console.log(formattedTime)
     return formattedTime
   }
 
-  const handleRespond = (formId)=>{
+  const handleRespond = (formId) => {
     getRespondList(formId).then((res) => {
       setRespond(res)
       console.log(res)
@@ -91,7 +92,7 @@ export default function About({ title }) {
 
   return (
     <section className={styles.section}>
-      <div className={`${styles['container']} __container ms-motion-slideUpIn`} data-width={`medium`}>
+      <div className={`${styles['container']} __container ms-motion-slideUpIn`} data-width={`large`}>
         <div className="grid grid--fit" style={{ '--data-width': `200px`, columnGap: `1rem` }}>
           <div className={`card`}>
             <div className={`card__body d-flex align-items-center justify-content-between`}>
@@ -117,7 +118,7 @@ export default function About({ title }) {
           </div>
         </div>
 
-        <h3 className={`mt-40`}>My forms</h3>
+        <h1 className={`mt-40 mb-10 ms-fontWeight-bold`}>My forms</h1>
         {form &&
           form.map((item, i) => {
             return (
@@ -147,7 +148,7 @@ export default function About({ title }) {
             )
           })}
 
-        <Link to={`d`}>View all</Link>
+          <Link to={`new`} className={`d-f-c mt-40`}>Create a new form</Link>
       </div>
     </section>
   )
